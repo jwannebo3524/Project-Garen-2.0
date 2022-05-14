@@ -1,4 +1,4 @@
-#Project Garen 2.0
+Project Garen 2.0
 -----------------------------------------------------
 if anyone has a better name please share.
 
