@@ -1,9 +1,11 @@
 #Project Garen 2.0
+
 if anyone has a better name please share.
 
 League of Legends bot development.
 
 As of now the only stuff is from the LAG bot, which is so dumb it is incapable of playing the game. just for reference and mabye a bit of copy and paste. WE SHOULD NOT USE A LAG-TYPE ARCHITECTURE. IT IS A BAD DESIGN.
+
 ------------------------------------
 #contribuiting to the repository
 
