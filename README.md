@@ -4,11 +4,11 @@ if anyone has a better name please share.
 
 League of Legends bot development.
 
-As of now the only stuff is from the LAG bot, which is so dumb it is incapable of playing the game. just for reference and mabye a bit of copy and paste. WE SHOULD NOT USE A LAG-TYPE ARCHITECTURE. IT IS A BAD DESIGN.
+there is a folder containing the LAG bot, which is so dumb it is incapable of playing the game. just for reference and mabye a bit of copy and paste. WE SHOULD NOT USE A LAG-TYPE ARCHITECTURE. IT IS A BAD DESIGN. Other folders are for garen 2.0
 
-------------------------------------
-#contribuiting to the repository
 
+contribuiting to the repository
+-------------------------------------
 Feel free to use main, but if you feel like something needs a new branch you can do that too.
 
 Make sure your code has some comments (like headers for classes and functions), and if it needs explanation give it explanation.
