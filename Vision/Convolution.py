@@ -1,5 +1,6 @@
+import numpy as np
 def Convolve(filters,image, stride = 1):
-  #performs a convultion operation on a 2d image
+  #performs a convultion operation on a 2d (NOT RGB) image. resulting shape is (x/stride-filtx,y/stride-filty,# of filters)
   out = []
   filtX = len(filters[0])
   filtY=len(filters[0][0])
@@ -22,3 +23,29 @@ def ReLu(data):
   #just ReLu
   reutrn np.clip(data,0,999999)
     
+def Deconvolve(filters,data, stride=1):
+  #performs a deconvultion for a 2d image. resulting shape is (x*stride+filtx,y*stride+filty)
+  filtX = len(filters[0])
+  filtY=len(filters[0][0])
+  out = np.zeros(filtX*len(data),filtY*len(data))
+  norm = np.zeros(filtX*len(data),filtY*len(data))
+  c = 0
+  while(c<len(data)): #for each colomun of feature values
+    c2 = 0
+    while(c2<len(data[0])): #for each feature value
+      patch = np.multiply(data,np.reshape(filters,(,1))) #get the approximate image patch
+      out[c*stride:(c*stride)+filtX,c2*stride:(c2*stride)+filtY] = patch #put it in the right spot
+      norm[c*stride:(c*stride)+filtX,c2*stride:(c2*stride)+filtY] += 1 #add one to the norm value
+      c2 += 1
+    c += 1
+  #go back and try to normalize the values
+  c = 0
+  while(c<len(out)): #for each pixel column
+    c2 = 0
+    while(c2<len(out[0])): #for each pixel
+      if(norm[c,c2] >0):  #just in case it tries to divide by 0
+        out[c,c2] = out[c,c2]/norm[c,c2] #normalize the pixel
+      c2 += 1
+    c += 1
+    
+  return out
