@@ -1,6 +1,7 @@
 import numpy as np
 def Convolve(filters,image, stride = 1):
   #performs a convultion operation on a 2d (NOT RGB) image. resulting shape is (x/stride-filtx,y/stride-filty,# of filters)
+  #TODO: add 3d convolution for more layers and RGB. Idk why i built it for 2d images because thats kinda useless.
   out = []
   filtX = len(filters[0])
   filtY=len(filters[0][0])
@@ -25,6 +26,7 @@ def ReLu(data):
     
 def Deconvolve(filters,data, stride=1):
   #performs a deconvultion for a 2d image. resulting shape is (x*stride+filtx,y*stride+filty)
+  #this doesn't really work this isn't how image generation normally works. Also should be 3d not 2d see above.
   filtX = len(filters[0])
   filtY=len(filters[0][0])
   out = np.zeros(filtX*len(data),filtY*len(data))

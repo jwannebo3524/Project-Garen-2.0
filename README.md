@@ -16,4 +16,20 @@ If you are auto-generating a ton of data files put them in their own folder.
 
 Later we can have a folder for tests (graphs, testing data, trained bots (if applicable) or parts of bots, training data, ect...) Don't put stuff like that in main (unless/until we train a single main version of the bot that has passed testing.)
 
+PLZ HELP ME IDK WHAT I"M DOING. FEEL FREE TO DELETE REWRITE OVERRIDE FIX OR BREAK STUFF I"VE WRITTEN AND ALSO ADD STUFF THATS NOT THERE
+if you have no clue what something is ask.
+
+as of now nothing works. Also nothings tested. Also mostly nothings written.
+
+-------------------------------------
+
+
+
+garen is coming....
+
+
+
+
+
+
 
