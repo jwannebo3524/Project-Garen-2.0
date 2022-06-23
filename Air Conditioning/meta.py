@@ -21,7 +21,7 @@ class meta:
             f.close()
         except:
             print("<-SYSTEM ERROR-> Error encountered while copying template. In Meta.py, writeBlank()")
-    def Repair(self,name): #repair a somehow damaged symbol-class. Can't fix everything, of course, but if data is accidentaly uploaded wrong should help.
+    def Repair(self,name): #repair a somehow damaged symbol-class. Can't fix everything, but if data is accidentaly uploaded wrong should help.
         try:
             z = self.getClass(name) #make sure class is reachable. if not make a new one.
         except:
@@ -53,7 +53,7 @@ class meta:
                         symfile.pop(c) #remove unreadable lines
                             
                 except:
-                    f.append("/n#END")
+                    symfile.insert(c,"#END")
                     line = "#END"
             c += 1
         f = open(self.path+name,'w')
@@ -79,4 +79,18 @@ class meta:
                 f = open(self.path+name,'w')
                 f.write("".join(symfile))
                 f.close()
-            
+class Struct: #class to hold data in nested lists with some extra attributes too.
+    def __init__(self,contents = None)
+    self.isStruct = True
+    self.data = []
+    try:
+        assert contents.isStruct == True
+        self.data.append(contents)
+    except:
+        try:
+            assert len(contents) >= 0
+            self.data = contents
+        except:
+            print("<-SYSTEM ERROR-> unrcognized data type added to Struct on init")
+    def add(self,contents):
+        
