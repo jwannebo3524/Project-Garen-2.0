@@ -22,7 +22,7 @@ def Sigmoid(data):
 
 def ReLu(data):
   #just ReLu
-  reutrn np.clip(data,0,999999)
+  return np.clip(data,0,999999)
     
 def Deconvolve(filters,data, stride=1):
   #performs a deconvultion for a 2d image. resulting shape is (x*stride+filtx,y*stride+filty)

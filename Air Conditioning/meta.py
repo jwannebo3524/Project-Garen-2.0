@@ -1,4 +1,5 @@
 #work in progress this ones hard to explain
+# Built like this to use hard drive instead of RAM, to handle a potentially excessively large symbol-stucture
 import importlib
 class meta:
     def __init__(self,directory = "auto"):
@@ -59,7 +60,7 @@ class meta:
         f = open(self.path+name,'w')
         f.write("".join(symfile))
         f.close()
-    def writeAttribute(self,name,attr,value):
+    def writeAttribute(self,name,attr,value): #hard- write to an attribute
         try:
             z = self.getClass(name)
             index = int(getattr(z,attr+"LOCALE"))
@@ -79,18 +80,45 @@ class meta:
                 f = open(self.path+name,'w')
                 f.write("".join(symfile))
                 f.close()
-class Struct: #class to hold data in nested lists with some extra attributes too.
-    def __init__(self,contents = None)
-    self.isStruct = True
-    self.data = []
-    try:
-        assert contents.isStruct == True
-        self.data.append(contents)
-    except:
+class Struct: #class to hold data in nested lists with some extra attributes too. More will probably be added later to this class.
+    def __init__(self,contents = None,Ordered = False,freq = 0):
+        self.isStruct = True
+        self.Ordered = Ordered
+        self.Freq = freq
+        self.data = []
+        self.Symbols = []
         try:
-            assert len(contents) >= 0
-            self.data = contents
+            assert contents.isStruct == True
+            self.data.append(contents)
+            self.AddFrom(contents)
         except:
-            print("<-SYSTEM ERROR-> unrcognized data type added to Struct on init")
-    def add(self,contents):
+            try:
+                assert len(contents) >= 0
+                c = 0
+                while(c<len(contents)):
+                    self.AddFom(contents[c])
+                    c += 1
+                self.data = contents
+            except:
+                print("<-SYSTEM ERROR-> unrcognized data type added to Struct on init")
+    def add(self,contents): #add sub struct
+        try:
+            assert contents.isStruct == True
+            self.data.append(contents)
+            self.AddFrom(contents)
+        except:
+            try:
+                assert len(contents) >= 0
+                c = 0
+                while c<len(contents):
+                    self.AddFom(contents[c])
+                    self.data.append(contents[c])
+                    c += 1
+            except:
+                print("<-SYSTEM ERROR-> attempt to add unrecognized data type to Struct")
+    def AddFrom(self,struct):
+        c = 0
+        while(c<len(struct.Symbols)):
+            self.Symbols.append(struct.Symbols) #repeats allowed for efficieny.
+            c += 1
         
