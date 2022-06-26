@@ -5,15 +5,26 @@ class AirConditioning:
     def __init__(self,directory="auto"):
         self.directory = directory
         self.M = meta.meta(directory)
-    def ForwardChain(struct): #built for unordered structs, possibly with subordered stuff but not necessarily. For prediction
+        z = self.M.getClass("Library")   #make sure there is a 'library' file, to hold structures. If not, create one.
+        if(z==False):
+            self.M.writeBlank("Library")
+    def BuildAnalogies(self,struct): #built for unordered structs, possibly with subordered stuff but not necessarily.
+          #nowhere near done.
+        potentialStructs = []
+        anchors = []
         c = 0
         while(c<len(struct.Symbols)):
-            z = meta.meta.getClass(struct.Symbols[c])
+            z = self.M.getClass(struct.Symbols[c])
             try:
                 assert z == False
                 print("<-SYSTEM ERROR-> Nonexistant symbol in struct sent to ForwardChain()")
             except:
-                pass
-            c2 = 0
-            while(c2<len(struct.Symbols)):
-                if(z.
+                c2 = c+1
+                while(c2<len(struct.Symbols)):
+                    try:
+                        structures = getattr(z,"ConincidencesWith"+struct.Symbols[c2])
+                        potentialStructs.append(structures)
+                        anchors.append([struct.Symbols[c],struct.Symbols[c2]])
+                    except:
+                        pass
+                    c2 += 1
