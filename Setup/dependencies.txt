@@ -1,3 +1,4 @@
 python 3
 numpy
 pillow (PIL)
+openCV
