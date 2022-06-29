@@ -8,8 +8,7 @@ class AirConditioning:
         z = self.M.getClass("Library")   #make sure there is a 'library' file, to hold structures. If not, create one.
         if(z==False):
             self.M.writeBlank("Library")
-    def BuildAnalogies(self,struct): #built for unordered structs, possibly with subordered stuff but not necessarily.
-          #nowhere near done.
+    def Retrive2Coincidences(self,struct):
         potentialStructs = []
         anchors = []
         c = 0
@@ -28,3 +27,6 @@ class AirConditioning:
                     except:
                         pass
                     c2 += 1
+        return potentialStructs    #keep in mind classes- subsets of symbols- symbols too? - assosciations between them - use classes to generalize easier. Don't forget repeated relations/ substitution proceure!!!
+    def Embed2Coincidences(self,struct):
+        

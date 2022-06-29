@@ -81,12 +81,13 @@ class meta:
                 f.write("".join(symfile))
                 f.close()
 class Struct: #class to hold data in nested lists with some extra attributes too. More will probably be added later to this class.
-    def __init__(self,contents = None,Ordered = False,freq = 0):
+    def __init__(self,contents = None,Ordered = False,freq = 0,inLibrary=False):
         self.isStruct = True
         self.Ordered = Ordered
         self.Freq = freq
         self.data = []
         self.Symbols = []
+        self.inLibrary=inLibrary
         try:
             assert contents.isStruct == True
             self.data.append(contents)
@@ -122,3 +123,5 @@ class Struct: #class to hold data in nested lists with some extra attributes too
             self.Symbols.append(struct.Symbols) #repeats allowed for efficieny.
             c += 1
         
+class SymbolInstance: #idk i need to think about this one if its necessary or useful.
+    def __substitutingFor
