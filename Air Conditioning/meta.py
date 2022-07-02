@@ -87,7 +87,7 @@ class Struct: #class to hold data in nested lists with some extra attributes too
         self.Freq = freq
         self.data = []
         self.Symbols = []
-        self.inLibrary=inLibrary
+        self.inLibrary=inLibrary        
         try:
             assert contents.isStruct == True
             self.data.append(contents)
@@ -122,6 +122,17 @@ class Struct: #class to hold data in nested lists with some extra attributes too
         while(c<len(struct.Symbols)):
             self.Symbols.append(struct.Symbols) #repeats allowed for efficieny.
             c += 1
+    def Hash(self):
+        c = 0
+        hdata = []
+        while(c<len(self.data)):
+            try:
+                hdata.append(self.data[c].Hash())
+            except:
+                hdata.append(self.data[c]):
+            c += 1
+        return str(hdata)
+            
         
 class SymbolInstance: #idk i need to think about this one if its necessary or useful.
     def __substitutingFor
