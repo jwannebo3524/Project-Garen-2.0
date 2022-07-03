@@ -1,0 +1,3 @@
+Umm....
+An attempt to implement a novel symbolic arcitecture based on efficient analogous reasoning, simulation, RL (TD), and forward-chaining.
+So like an expert system but learns from experience and can generalize to new situations and is actually nothing like an expert system.

@@ -8,6 +8,7 @@ class AirConditioning:
         z = self.M.getClass("Library")   #make sure there is a 'library' file, to hold structures. If not, create one.
         if(z==False):
             self.M.writeBlank("Library")
+        self.ComputeQue = []
     def Retrive2Coincidences(self,struct):
         potentialStructs = []
         anchors = []
@@ -27,7 +28,7 @@ class AirConditioning:
                     except:
                         pass
                     c2 += 1
-        return potentialStructs    #keep in mind classes- subsets of symbols- symbols too? - assosciations between them - use classes to generalize easier. Don't forget repeated relations/ substitution proceure!!!
+        return potentialStructs,anchors    #keep in mind classes- subsets of symbols- symbols too? - assosciations between them - use classes to generalize easier. Don't forget repeated relations/ substitution proceure!!!
     def Embed2Coincidences(self,struct):
         library = self.M.getClass("Library")
         try:
@@ -40,7 +41,7 @@ class AirConditioning:
             z = self.M.getClass(struct.Symbols[c])
             try:
                 assert z == False
-                print("<-SYSTEM ERROR-> Nonexistant symbol in struct sent to Retrive2Coincidences()")
+                print("<-SYSTEM ERROR-> Nonexistant symbol in struct sent to Embed2Coincidences()")
             except:
                 c2 = 0
                 while(c2<len(struct.Symbols)):
@@ -55,3 +56,6 @@ class AirConditioning:
                         except:
                             pass
                     c2 += 1
+
+#UUUUUUUUUUUUUUUUUUUUGGGGGGGGGGGGGGGGGGGGGGGGGGGGGHHHHHHHHHHHHHHHHHHHHHHHHHH WHYYYYYYYYYYYYYYYY
+

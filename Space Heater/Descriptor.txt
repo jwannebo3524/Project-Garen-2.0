@@ -1,0 +1,5 @@
+Space Heater is a second edition of the yet unfinished Air Conditioning. 
+as Air Conditioning is quickly becoming unmanagably complex, Space heater is intended to implement the same algorithim but in a less efficient but
+more concise manner.
+
+So its going to run like shit, but the code might make some sense, and work.

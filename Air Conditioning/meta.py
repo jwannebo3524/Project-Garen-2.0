@@ -122,17 +122,18 @@ class Struct: #class to hold data in nested lists with some extra attributes too
         while(c<len(struct.Symbols)):
             self.Symbols.append(struct.Symbols) #repeats allowed for efficieny.
             c += 1
-    def Hash(self):
+    def Hash(self): #convert data to string.
         c = 0
         hdata = []
         while(c<len(self.data)):
             try:
                 hdata.append(self.data[c].Hash())
             except:
-                hdata.append(self.data[c]):
+                hdata.append(self.data[c])
             c += 1
         return str(hdata)
             
         
-class SymbolInstance: #idk i need to think about this one if its necessary or useful.
-    def __substitutingFor
+#class SymbolInstance: #idk i need to think about this one if its necessary or useful.
+  #  def __substitutingFor
+
