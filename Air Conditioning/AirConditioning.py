@@ -8,7 +8,7 @@ class AirConditioning:
         z = self.M.getClass("Library")   #make sure there is a 'library' file, to hold structures. If not, create one.
         if(z==False):
             self.M.writeBlank("Library")
-        self.ComputeQue = []
+        self.ComputeQue = [] #hopefully this never gets used
     def Retrive2Coincidences(self,struct):
         potentialStructs = []
         anchors = []
@@ -56,6 +56,21 @@ class AirConditioning:
                         except:
                             pass
                     c2 += 1
+    
+class tSpace:
+    def __init__(self,directory = "auto",max = 20):
+        self.ac = AirConditioning(directory = directory)
+        self.structs = []
+        self.MAX = max
+    def getLastStruct(self):
+        return self.structs[-1]
+    def add(self,struct):
+        self.structs.append(struct)
+        self.ac.Embed2Coincidences(struct)
+        while(len(self.structs>self.MAX)):
+            self.structs.pop(0)
+        
+
 
 #UUUUUUUUUUUUUUUUUUUUGGGGGGGGGGGGGGGGGGGGGGGGGGGGGHHHHHHHHHHHHHHHHHHHHHHHHHH WHYYYYYYYYYYYYYYYY
 

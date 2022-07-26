@@ -81,6 +81,8 @@ class meta:
                 f.write("".join(symfile))
                 f.close()
 class Struct: #class to hold data in nested lists with some extra attributes too. More will probably be added later to this class.
+    #i don't think im going to use this- instead going with plain lists of statements + edge collapse because I don't know how nested structs could be handled with reasonable efficiency.
+    
     def __init__(self,contents = None,Ordered = False,freq = 0,inLibrary=False):
         self.isStruct = True
         self.Ordered = Ordered
