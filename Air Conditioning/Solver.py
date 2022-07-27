@@ -3,7 +3,7 @@ import AirConditioning
 import Template
 # to do the solving bit. i decided to seperate it to make more organized.
 
-class Solver:
+class Solver:  #due to new reorganization and the anticipation of using level-seperate solving instead of whatever the fuck this was going to be this probably wont be used. leaveing it in just in case, but severly incomplete.
     def __init__(self,AirConditioner):
         self.AC = AirConditioner
     def BuildHierarchy(self,struct):

@@ -30,7 +30,7 @@ visionfile = "LAGVisionSystem"
 
 
 #----------------------------IGNORE--------------------------------------------
-#Update!! Imitation mode added, just start code and it will learn.
+#Update!! Imitation mode added, just start code and it will learn.    #LATER UPDATE: NO it wont this thing's so broken
 
 
 # when agent in basic training mode:

@@ -1,6 +1,9 @@
 import meta
 #not done at all
 #To handle complexity symbolicly and flexibly
+
+
+#this file defines spaces of symbols and some related functions
 class AirConditioning:
     def __init__(self,directory="auto"):
         self.directory = directory
@@ -24,18 +27,29 @@ class AirConditioning:
                     try:
                         structures = getattr(z,"ConincidencesWith"+struct.Symbols[c2])
                         potentialStructs.append(structures)
+
                         anchors.append([struct.Symbols[c],struct.Symbols[c2]])
                     except:
                         pass
                     c2 += 1
-        return potentialStructs,anchors    #keep in mind classes- subsets of symbols- symbols too? - assosciations between them - use classes to generalize easier. Don't forget repeated relations/ substitution proceure!!!
-    def Embed2Coincidences(self,struct):
+        importance = 0 #pathway open just in case. Idk what im doing. if adding make slight modification to Fetching.py (impotance var--> list)
+        return potentialStructs,importance,anchors    #keep in mind classes- subsets of symbols- symbols too? - assosciations between them - use classes to generalize easier. Don't forget repeated relations/ substitution proceure!!!
+    
+    def Embed2Coincidences(self,struct):  #FIXTHIS------- no longer using 'symbol' class, so this can be replaced with a MUCH simpler function?
+        #or actually just remove hashing?
+        #might have just fixed it, moving on, --LOOK BACK AT THIS LATER!!!------------
         library = self.M.getClass("Library")
         try:
             strid = getattr(library,"IDOF"+struct.Hash())
         except:
-            self.M.writeAttribute("Library","IDOF"+struct.Hash(),getattr(library,"Last")+1)
-            self.M.writeAttribute("Library","Last",getattr(library,"Last")+1)
+            try:
+                strid = getattr(library,"IDOF"+str(struct))
+                dont = True
+            except:
+                dont = False
+            if(not dont):
+                self.M.writeAttribute("Library","IDOF"+struct.Hash(),getattr(library,"Last")+1)
+                self.M.writeAttribute("Library","Last",getattr(library,"Last")+1)
         c = 0
         while(c<len(struct.Symbols)):
             z = self.M.getClass(struct.Symbols[c])
